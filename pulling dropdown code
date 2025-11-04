@@ -1,0 +1,49 @@
+//launch amazon and from category dropdown list select book option//
+package handledropdown;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Handling_Dropdown 
+{
+
+	public static void main(String[] args) 
+	{
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.amazon.in/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.in%2Fs%3Fk%3Dlogin%2Bamazon%2Baccount%26adgrpid%3D59671903835%26ext_vrnc%3Dhi%26hvadid%3D590652406969%26hvdev%3Dc%26hvlocphy%3D9154601%26hvnetw%3Dg%26hvqmt%3De%26hvrand%3D12365308493340366690%26hvtargid%3Dkwd-837441119212%26hydadcr%3D24542_2265395%26mcid%3D21027f31522b357794b2e3ec13f3c9f7%26tag%3Dgooginhydr1-21%26ref%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=inflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0");
+		WebElement e1 = driver.findElement(By.xpath("//input[@name='email']"));
+		e1.sendKeys("9535561016");
+		WebElement e2 =driver.findElement(By.xpath("//span[@id='continue']"));
+		e2.click();
+		WebElement e3 = driver.findElement(By.xpath("//input[@name='password']"));
+		e3.sendKeys("9743875210");
+		WebElement e4 = driver.findElement(By.xpath("//input[@id='signInSubmit']"));
+		e4.click();
+		
+		WebElement e6 = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+		e6.clear();
+		
+		
+		WebElement e5 = driver.findElement(By.id("searchDropdownBox")); //clicking the dropdown
+		e5.click();
+		
+		Select s1 = new Select(e5);//this object is selecting the values in dropdown
+		//s1.selectByIndex(13); //this is select at index position//
+		//s1.selectByVisibleText("Appliances"); //this is select by visible text//
+		s1.selectByValue("search-alias=stripbooks"); //this is selected by value
+		
+		WebElement e8 = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+		e8.sendKeys("power of book");
+		WebElement e7 = driver.findElement(By.xpath("//input[@id='nav-search-submit-button']"));
+		e7.click();
+		
+		
+		
+
+	}
+
+}
